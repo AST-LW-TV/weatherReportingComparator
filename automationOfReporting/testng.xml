@@ -1,0 +1,8 @@
+<suite name="All Test Suite">
+    <test name="Test directory">
+        <classes>
+            <class name="ui_testing.BaseTest"></class>
+            <class name="ui_testing.miscellaneous_tests.SearchBarSuggestions"></class>
+        </classes>
+    </test>
+</suite>
