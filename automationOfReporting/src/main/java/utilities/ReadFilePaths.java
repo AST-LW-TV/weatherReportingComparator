@@ -26,6 +26,9 @@ public class ReadFilePaths {
     private static final Supplier<String> QP1 = () -> "./src/test/resources/service_layer_test_properties/weatherQueryParams1.json";
     private static final Supplier<String> CF = () -> "src/test/resources/logic_properties/commonFileForLogic.properties";
 
+    // file path constant for screenshots
+    private static final Supplier<String> SH = () -> "src/test/resources/screenshots";
+
     private static final Map<String, Supplier<String>> MAP = new HashMap<>();
 
     static {
@@ -41,6 +44,10 @@ public class ReadFilePaths {
         MAP.put("queryParam1", QP1);
         MAP.put("stagingKeys", KY);
         MAP.put("commonFile", CF);
+<<<<<<< HEAD
+=======
+        MAP.put("screenshotPath",SH);
+>>>>>>> screenshotsFunctionality
     }
 
     public static String getFilePath(String nameOfTheFile) {
