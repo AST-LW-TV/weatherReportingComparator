@@ -1,21 +1,19 @@
-package ui_testing.miscellaneous_tests;
+package ui_tests;
 
 import ui_automation.commons.WebActions;
 import org.json.simple.JSONArray;
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ui_testing.BaseTest;
 import utilities.jsonParserFunctions.JsonBlobType2;
 
-public class CheckWindSpeed extends BaseTest {
+public class CheckWindSpeedTest extends BaseTest {
 
     private WebActions actions;
     private JsonBlobType2 js;
     private int count=0;
 
-
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",groups={"ui_regression_tests","third_priority"},dependsOnGroups = "second_priority")
     public void windSpeedValidation(String place){
         int size=place.length()-(place.length()-3);
         place=place.substring(0,size);

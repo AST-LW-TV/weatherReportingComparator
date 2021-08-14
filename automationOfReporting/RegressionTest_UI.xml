@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="REGRESSION TESTS - UI">
+    <test name="Regression Testing for UI">
+        <groups>
+            <run>
+                <include name="ui_regression_tests"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.test.ui_tests.SearchBarSuggestionsTest"/>
+            <class name="com.test.ui_tests.IsPolicyBlockDisplayedTest"/>
+        </classes>
+    </test>
+</suite>
+

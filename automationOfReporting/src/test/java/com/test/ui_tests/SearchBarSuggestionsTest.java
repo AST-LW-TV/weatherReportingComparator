@@ -1,24 +1,22 @@
-package ui_testing.miscellaneous_tests;
+package ui_tests;
 
 import org.json.simple.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui_automation.components.SearchComponent;
-import ui_testing.BaseTest;
 import utilities.jsonParserFunctions.JsonBlobType1;
 
-public class SearchBarSuggestions extends BaseTest {
+public class SearchBarSuggestionsTest extends BaseTest {
 
     private SearchComponent searchComponent;
     private JsonBlobType1 js;
 
-    @Test(dataProvider="getData")
+    @Test(dataProvider="getData",groups={"ui_regression_tests","second_priority"}, dependsOnGroups = {"first_priority"})
     public void searchResults(String place){
         searchComponent=new SearchComponent(driver);
         int numberOfSearchSuggestions;
         numberOfSearchSuggestions=searchComponent.getNumberOfPlaceSuggestions(place);
-        System.out.println(numberOfSearchSuggestions);
         Assert.assertTrue(numberOfSearchSuggestions<=5);
     }
 

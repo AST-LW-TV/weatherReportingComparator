@@ -1,4 +1,4 @@
-package Logic_tests;
+package logic_tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;

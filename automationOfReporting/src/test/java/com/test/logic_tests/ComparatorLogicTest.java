@@ -1,4 +1,4 @@
-package Logic_tests;
+package logic_tests;
 
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
@@ -11,17 +11,22 @@ public class ComparatorLogicTest extends BaseTest{
     private int temperatureFromUI;
     private int temperatureFromAPI;
 
-    @Test(dataProvider = "getData")
-    public void comparator(String place,String key,int variance){
+    private int getTemperatureFromUI(String place){
+        return Integer.parseInt((String)actions.returnInfo(place).get(0));
+    }
 
-        temperatureFromUI=Integer.parseInt((String)actions.returnInfo(place).get(0));
-
+    private int getTemperatureFromAPI(String place,String key){
         setQueryParams =new SetQueryParamsForCurrentTemp.QueryParamBuilder()
                 .q(place)
                 .appid(key)
                 .build();
-        temperatureFromAPI=getCurrentWeather.currentTemperature(setQueryParams);
+        return getCurrentWeather.currentTemperature(setQueryParams);
+    }
 
+    @Test(dataProvider = "getData",groups={"comparator"})
+    public void comparator(String place,String key,int variance){
+        temperatureFromUI=getTemperatureFromUI(place);
+        temperatureFromAPI=getTemperatureFromAPI(place,key);
         Assert.assertTrue(Math.abs(temperatureFromAPI-temperatureFromUI)<=variance);
     }
 

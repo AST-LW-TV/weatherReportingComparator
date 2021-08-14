@@ -1,4 +1,4 @@
-package ui_testing;
+package ui_tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
@@ -9,13 +9,13 @@ public abstract class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeTest
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = BrowserFactory.getDriver();
         driver.get(ReadPropertyFiles.getValue("urlProperties", "url"));
     }
 
-    @AfterTest
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }

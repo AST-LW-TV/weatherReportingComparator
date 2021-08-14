@@ -1,4 +1,4 @@
-package service_layer_tests.miscellaneous_tests;
+package service_layer_tests;
 
 import org.json.simple.JSONObject;
 import org.junit.Assert;
@@ -10,18 +10,18 @@ import service_layer_automation.get_requests.GetCurrentWeather;
 import utilities.ReadPropertyFiles;
 import utilities.jsonParserFunctions.JsonBlobType3;
 
-public class ValidatingWindSpeed {
+public class ValidatingWindSpeedTest {
 
     private JsonBlobType3 js;
     private SetQueryParamsForCurrentTemp setQueryParams;
     private GetCurrentWeather getCurrentWeather;
 
-    @BeforeTest
+    @BeforeTest(alwaysRun = true)
     public void setUp(){
         getCurrentWeather=new GetCurrentWeather();
     }
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",groups = {"api_regression_tests"},dependsOnGroups = {"third_priority"})
     public void checkingWindSpeed(String place,String key){
         setQueryParams =new SetQueryParamsForCurrentTemp.QueryParamBuilder()
                 .q(place)
