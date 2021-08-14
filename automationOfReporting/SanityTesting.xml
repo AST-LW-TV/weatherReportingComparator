@@ -3,7 +3,7 @@
 
 <suite name="SANITY TESTING (API and UI)">
     <suite-files>
-        <suite-file path="RegressionTest_UI.xml"></suite-file>
+        <suite-file path="RegressionTest(UI).xml"></suite-file>
         <suite-file path="RegressionTest_API.xml"></suite-file>
     </suite-files>
 </suite>
