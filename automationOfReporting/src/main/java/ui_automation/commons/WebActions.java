@@ -49,6 +49,7 @@ public class WebActions {
         convertSentenceToInt();
     }
 
+    // gives the current temperature - at index 0...
     public List<Object> returnInfo(String place,int count){
         List<Object> informationList=new ArrayList<>();
         if(count<=1)
