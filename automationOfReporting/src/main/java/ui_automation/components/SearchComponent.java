@@ -15,11 +15,14 @@ public class SearchComponent extends AbstractComponent {
     @FindBy(css=".search-result")
     List<WebElement> obtainedPlaceResults;
 
+    @FindBy(css=".results-container .search-result")
+    List<WebElement> placeSuggestionsInResultPage;
+
     public SearchComponent(WebDriver driver){
         super(driver);
     }
 
-    public void enterPlaceNameByCharacter(String place){
+    private void enterPlaceNameByCharacter(String place){
         int size=place.length();
         for(int i=0;i<size-(size-3);i++){  // only three char are entered, so that we get suggestions with partial text
             searchField.sendKeys(place.charAt(i)+"");  // converting to string
@@ -39,4 +42,10 @@ public class SearchComponent extends AbstractComponent {
         obtainedPlaceResults.get(0).click();
     }
 
+    public void selectPlaceInResultPlace(String place){
+        searchField.clear();
+        enterPlaceNameByCharacter(place);
+        ExplicitDriverWaits.waitForDropDownVisibility(driver,placeSuggestionsInResultPage);
+        placeSuggestionsInResultPage.get(0).click();
+    }
 }

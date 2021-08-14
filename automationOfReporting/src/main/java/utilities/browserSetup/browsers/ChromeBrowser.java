@@ -25,6 +25,7 @@ public class ChromeBrowser extends BrowserConfiguration {
         WebDriverManager.chromedriver().setup();
         options = new ChromeOptions();
         options.addArguments("--" + mode);
+        options.addArguments("disable-notifications");
     }
 
     @Override
@@ -32,7 +33,7 @@ public class ChromeBrowser extends BrowserConfiguration {
         readBrowserProperties();
         setTheProperties();
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
 }

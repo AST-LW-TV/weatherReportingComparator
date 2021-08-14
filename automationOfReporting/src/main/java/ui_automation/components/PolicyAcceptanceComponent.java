@@ -3,12 +3,9 @@ package ui_automation.components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import utilities.ExplicitDriverWaits;
 
-public class PolicyAcceptanceComponent {
-
-    private WebDriver driver;
+public class PolicyAcceptanceComponent extends AbstractComponent {
 
     @FindBy(id = "privacy-policy-banner")
     WebElement acceptPolicyBlock;
@@ -17,12 +14,19 @@ public class PolicyAcceptanceComponent {
     private WebElement acceptPolicyButton;
 
     public PolicyAcceptanceComponent(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
+    }
+
+    private WebElement waitForPolicyBlock() {
+        return ExplicitDriverWaits.visibility(driver, acceptPolicyBlock);
+    }
+
+    public boolean isDisplayed() {
+        return (waitForPolicyBlock() != null) ? true : false;
     }
 
     public void clickOnPolicy() {
-        if (ExplicitDriverWaits.visibility(driver, acceptPolicyBlock) != null)
+        if (waitForPolicyBlock() != null)
             acceptPolicyButton.click();
     }
 }

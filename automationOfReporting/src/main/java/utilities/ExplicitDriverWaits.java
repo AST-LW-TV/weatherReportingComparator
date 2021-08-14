@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,6 +25,6 @@ public class ExplicitDriverWaits {
 
     public static void waitForDropDownVisibility(WebDriver driver, List<WebElement> element) {
         setUp(driver);
-        wait.until((driverToWait) -> (element.size() >= 3 && element.size() <= 5));
+        wait.until((driverToWait) -> (element.size() >= 3));
     }
 }
