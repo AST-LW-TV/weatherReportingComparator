@@ -18,16 +18,15 @@ public abstract class JsonParser {
 
     public JsonParser(String nameOfTheFile) {
         jsonParser = new JSONParser();
-        file=null;
-        jsonStructure=null;
-        try{
-            file=new FileReader(ReadFilePaths.getFilePath(nameOfTheFile));
-            jsonStructure=jsonParser.parse(file);
+        file = null;
+        jsonStructure = null;
+        try {
+            file = new FileReader(ReadFilePaths.getFilePath(nameOfTheFile));
+            jsonStructure = jsonParser.parse(file);
         } catch (IOException e) {
             // visit later
         } catch (ParseException e) {
             // visit later
         }
     }
-
 }

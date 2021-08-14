@@ -10,18 +10,17 @@ public class AccuWeatherResultsPage {
     private SearchComponent searchComponent;
     private InformationModule informationModule;
 
-    public AccuWeatherResultsPage(WebDriver driver){
-        this.driver=driver;
-        searchComponent=new SearchComponent(driver);
-        informationModule=new InformationModule(driver);
+    public AccuWeatherResultsPage(WebDriver driver) {
+        this.driver = driver;
+        searchComponent = new SearchComponent(driver);
+        informationModule = new InformationModule(driver);
     }
 
-    public SearchComponent getSearchComponent(){
+    public SearchComponent getSearchComponent() {
         return searchComponent;
     }
 
-    public InformationModule getInformationModule(){
+    public InformationModule getInformationModule() {
         return informationModule;
     }
-
 }

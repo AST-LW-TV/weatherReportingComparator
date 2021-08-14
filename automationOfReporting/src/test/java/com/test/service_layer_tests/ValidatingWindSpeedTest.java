@@ -1,8 +1,8 @@
-package service_layer_tests;
+package com.test.service_layer_tests;
 
 import org.json.simple.JSONObject;
 import org.junit.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import service_layer_automation.data_driving_classes.SetQueryParamsForCurrentTemp;
@@ -16,27 +16,27 @@ public class ValidatingWindSpeedTest {
     private SetQueryParamsForCurrentTemp setQueryParams;
     private GetCurrentWeather getCurrentWeather;
 
-    @BeforeTest(alwaysRun = true)
-    public void setUp(){
-        getCurrentWeather=new GetCurrentWeather();
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() {
+        getCurrentWeather = new GetCurrentWeather();
     }
 
-    @Test(dataProvider = "getData",groups = {"api_regression_tests"},dependsOnGroups = {"third_priority"})
-    public void checkingWindSpeed(String place,String key){
-        setQueryParams =new SetQueryParamsForCurrentTemp.QueryParamBuilder()
+    @Test(dataProvider = "getData", groups = {"api_regression_tests"})
+    public void checkingWindSpeed(String place, String key) {
+        setQueryParams = new SetQueryParamsForCurrentTemp.QueryParamBuilder()
                 .q(place)
                 .appid(key)
                 .build();
-        Assert.assertTrue(getCurrentWeather.currentWindSpeed(setQueryParams)<15);
+        Assert.assertTrue(getCurrentWeather.currentWindSpeed(setQueryParams) < 15);
     }
 
     @DataProvider
-    public Object[][] getData(){
-        String key=ReadPropertyFiles.getValue("stagingKeys","apiKey");
-        js=new JsonBlobType3("queryParam1");
-        JSONObject object=(JSONObject)js.jsonParserBlobType();
+    public Object[][] getData() {
+        String key = ReadPropertyFiles.getValue("stagingKeys", "apiKey");
+        js = new JsonBlobType3("queryParam1");
+        JSONObject object = (JSONObject) js.jsonParserBlobType();
         return new Object[][]{
-                {object.get("q"),key}
+                {object.get("q"), key}
         };
     }
 }

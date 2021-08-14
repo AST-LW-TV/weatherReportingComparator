@@ -25,6 +25,7 @@ public class FirefoxBrowser extends BrowserConfiguration {
         WebDriverManager.firefoxdriver().setup();
         options = new FirefoxOptions();
         options.addArguments("--" + mode);
+        options.addArguments("disable-notifications");
     }
 
     @Override

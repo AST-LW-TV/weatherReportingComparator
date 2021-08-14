@@ -1,4 +1,4 @@
-package ui_tests;
+package com.test.ui_tests;
 
 import org.junit.Assert;
 import org.testng.annotations.Test;

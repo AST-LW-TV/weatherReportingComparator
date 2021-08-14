@@ -1,4 +1,4 @@
-package logic_tests;
+package com.test.logic_tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
@@ -17,17 +17,16 @@ public class BaseTest {
     protected GetCurrentWeather getCurrentWeather;
 
     @BeforeTest
-    public void setUp(){
-        driver= BrowserFactory.getDriver();
-        driver.get(ReadPropertyFiles.getValue("urlProperties","url"));
-        actions=new WebActions(driver);
+    public void setUp() {
+        driver = BrowserFactory.getDriver();
+        driver.get(ReadPropertyFiles.getValue("urlProperties", "url"));
+        actions = new WebActions(driver);
 
-        getCurrentWeather=new GetCurrentWeather();
+        getCurrentWeather = new GetCurrentWeather();
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
-
 }

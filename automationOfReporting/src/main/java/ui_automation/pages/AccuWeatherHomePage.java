@@ -10,17 +10,17 @@ public class AccuWeatherHomePage {
     private PolicyAcceptanceComponent policyComponent;
     private SearchComponent searchComponent;
 
-    public AccuWeatherHomePage(WebDriver driver){
-        this.driver=driver;
-        policyComponent=new PolicyAcceptanceComponent(driver);
-        searchComponent=new SearchComponent(driver);
+    public AccuWeatherHomePage(WebDriver driver) {
+        this.driver = driver;
+        policyComponent = new PolicyAcceptanceComponent(driver);
+        searchComponent = new SearchComponent(driver);
     }
 
-    public PolicyAcceptanceComponent getPolicyComponent(){
+    public PolicyAcceptanceComponent getPolicyComponent() {
         return policyComponent;
     }
 
-    public SearchComponent getSearchComponent(){
+    public SearchComponent getSearchComponent() {
         return searchComponent;
     }
 }

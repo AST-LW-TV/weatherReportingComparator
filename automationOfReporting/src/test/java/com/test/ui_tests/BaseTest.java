@@ -1,4 +1,4 @@
-package ui_tests;
+package com.test.ui_tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
@@ -19,5 +19,4 @@ public abstract class BaseTest {
     public void tearDown() {
         driver.quit();
     }
-
 }

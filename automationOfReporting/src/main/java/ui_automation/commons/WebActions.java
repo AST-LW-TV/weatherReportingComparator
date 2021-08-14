@@ -16,41 +16,42 @@ public class WebActions {
     private String temperature;
     private String airQuality;
     private String windSpeed;
-    List<Object> informationList=new ArrayList<>();
+    List<Object> informationList = new ArrayList<>();
 
-    public WebActions(WebDriver driver){
-        this.driver=driver;
-        homePage=new AccuWeatherHomePage(driver);
-        resultPage=new AccuWeatherResultsPage(driver);
+    public WebActions(WebDriver driver) {
+        this.driver = driver;
+        homePage = new AccuWeatherHomePage(driver);
+        resultPage = new AccuWeatherResultsPage(driver);
     }
 
-    private void convertTemperatureToInt(){
-        int size=temperature.length();
-        temperature=temperature.substring(0,size-(size-2));
+    private void convertTemperatureToInt() {
+        int size = temperature.length();
+        temperature = temperature.substring(0, size - (size - 2));
     }
 
-    private void convertSentenceToInt(){
-        String[] array=windSpeed.split(" ");
-        windSpeed=array[1];
+    private void convertSentenceToInt() {
+        String[] array = windSpeed.split(" ");
+        windSpeed = array[1];
     }
 
-    private void navigateToResultsPage(String place){
+    private void navigateToResultsPage(String place) {
         homePage.getPolicyComponent().clickOnPolicy();
         homePage.getSearchComponent().selectFirstOptionFromDropDown(place);
     }
-    private void stayOnSamePage(String place){
+
+    private void stayOnSamePage(String place) {
         resultPage.getSearchComponent().selectPlaceInResultPlace(place);
     }
 
-    private void performingFactoryMethods(){
-        temperature=resultPage.getInformationModule().getCurrentTemperature();
-        airQuality=resultPage.getInformationModule().getAirQuality();
-        windSpeed=resultPage.getInformationModule().getWindSpeed();
+    private void performingFactoryMethods() {
+        temperature = resultPage.getInformationModule().getCurrentTemperature();
+        airQuality = resultPage.getInformationModule().getAirQuality();
+        windSpeed = resultPage.getInformationModule().getWindSpeed();
         convertTemperatureToInt();
         convertSentenceToInt();
     }
 
-    private void miniFactory(){
+    private void miniFactory() {
         performingFactoryMethods();
         informationList.add(temperature);
         informationList.add(airQuality);
@@ -58,8 +59,8 @@ public class WebActions {
     }
 
     // gives the current temperature - at index 0...
-    public List<Object> returnInfo(String place,int count){
-        if(count<=1)
+    public List<Object> returnInfo(String place, int count) {
+        if (count <= 1)
             navigateToResultsPage(place);
         else // here use the search component present in result page
             stayOnSamePage(place);
@@ -67,10 +68,9 @@ public class WebActions {
         return informationList;
     }
 
-    public List<Object> returnInfo(String place){
+    public List<Object> returnInfo(String place) {
         navigateToResultsPage(place);
         miniFactory();
         return informationList;
     }
-
 }

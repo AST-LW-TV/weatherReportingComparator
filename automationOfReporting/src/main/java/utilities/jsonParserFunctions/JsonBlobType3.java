@@ -1,5 +1,7 @@
 package utilities.jsonParserFunctions;
 
+import org.json.simple.JSONObject;
+
 /*
         {
             key:value
@@ -7,9 +9,7 @@ package utilities.jsonParserFunctions;
         }
  */
 
-import org.json.simple.JSONObject;
-
-public class JsonBlobType3 extends JsonParser{
+public class JsonBlobType3 extends JsonParser {
 
     public JsonBlobType3(String nameOfTheFile) {
         super(nameOfTheFile);
@@ -17,8 +17,7 @@ public class JsonBlobType3 extends JsonParser{
 
     @Override
     public Object jsonParserBlobType() {
-        JSONObject jsonObject=(JSONObject) jsonStructure;
+        JSONObject jsonObject = (JSONObject) jsonStructure;
         return jsonObject;
     }
-
 }

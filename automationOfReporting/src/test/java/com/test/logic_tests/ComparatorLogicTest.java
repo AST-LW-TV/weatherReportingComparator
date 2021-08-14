@@ -1,4 +1,4 @@
-package logic_tests;
+package com.test.logic_tests;
 
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
