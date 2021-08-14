@@ -24,7 +24,10 @@ public class ReadFilePaths {
     // file path constants used in test (Service layer in automation)
     private static final Supplier<String> KY = () -> "./src/test/resources/service_layer_test_properties/keys/stagingKeys.properties";
     private static final Supplier<String> QP1 = () -> "./src/test/resources/service_layer_test_properties/weatherQueryParams1.json";
-    private static final Supplier<String> CF=()->"src/test/resources/logic_properties/commonFileForLogic.properties";
+    private static final Supplier<String> CF = () -> "src/test/resources/logic_properties/commonFileForLogic.properties";
+
+    // file path constant for screenshots
+    private static final Supplier<String> SH = () -> "src/test/resources/screenshots";
 
     private static final Map<String, Supplier<String>> MAP = new HashMap<>();
 
@@ -39,8 +42,9 @@ public class ReadFilePaths {
         MAP.put("hostPath", HD);
         MAP.put("resourcesPath", RD);
         MAP.put("queryParam1", QP1);
-        MAP.put("stagingKeys",KY);
-        MAP.put("commonFile",CF);
+        MAP.put("stagingKeys", KY);
+        MAP.put("commonFile", CF);
+        MAP.put("screenshotPath",SH);
     }
 
     public static String getFilePath(String nameOfTheFile) {
