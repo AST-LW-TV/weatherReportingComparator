@@ -1,6 +1,7 @@
 package service_layer_tests.miscellaneous_tests;
 
 import org.json.simple.JSONObject;
+import org.junit.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,7 +27,7 @@ public class ValidatingWindSpeed {
                 .q(place)
                 .appid(key)
                 .build();
-        getCurrentWeather.currentTemperature(setQueryParams);
+        Assert.assertTrue(getCurrentWeather.currentWindSpeed(setQueryParams)<15);
     }
 
     @DataProvider

@@ -24,7 +24,7 @@ public class SearchBarSuggestions extends BaseTest {
 
     @DataProvider
     public Object[][] getData(){
-        js=new JsonBlobType1();
+        js=new JsonBlobType1("places");
         JSONArray array=(JSONArray) js.jsonParserBlobType();
         int totalPlaces=array.size();
         Object[][] data=new Object[totalPlaces][1]; // 1D object

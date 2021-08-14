@@ -10,13 +10,13 @@ public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
-    public void setUp(){
-        driver= BrowserFactory.getDriver();
-        driver.get(ReadPropertyFiles.getValue("urlProperties","url"));
+    public void setUp() {
+        driver = BrowserFactory.getDriver();
+        driver.get(ReadPropertyFiles.getValue("urlProperties", "url"));
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 

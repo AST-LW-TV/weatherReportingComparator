@@ -1,6 +1,6 @@
 package ui_testing.miscellaneous_tests;
 
-import comparator_logic.actions.WebActions;
+import ui_automation.commons.WebActions;
 import org.json.simple.JSONArray;
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
@@ -28,7 +28,7 @@ public class CheckWindSpeed extends BaseTest {
 
     @DataProvider
     public Object[][] getData(){
-        js=new JsonBlobType2();
+        js=new JsonBlobType2("placesInMain");
         JSONArray array=(JSONArray) js.jsonParserBlobType();
         int totalPlaces=array.size();
         Object[][] data=new Object[totalPlaces][1];

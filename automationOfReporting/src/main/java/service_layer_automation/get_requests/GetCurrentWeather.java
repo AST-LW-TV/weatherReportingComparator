@@ -10,14 +10,27 @@ import static io.restassured.RestAssured.given;
 
 public class GetCurrentWeather {
 
-    public int currentTemperature(SetQueryParamsForCurrentTemp queryParams) {
+    private String response;
+    private JsonPath js;
+
+    private void miniFactory(SetQueryParamsForCurrentTemp queryParams){
         RestAssured.baseURI= ReadPropertyFiles.getValue("hostPath","openWeatherAppDomain");
-        String response = given()
+        response = given()
                 .param("q", queryParams.getQ())
                 .param("appid", queryParams.getAppid())
                 .when().get(ReadPropertyFiles.getValue("resourcesPath", "openWeatherResourcesPath"))
                 .then().extract().response().asString();
-        JsonPath js=new JsonPath(response);
+        js=new JsonPath(response);
+    }
+
+    public float currentWindSpeed(SetQueryParamsForCurrentTemp queryParams){
+        miniFactory(queryParams);
+        float windSpeed=js.get("wind.speed");
+        return windSpeed;
+    }
+
+    public int currentTemperature(SetQueryParamsForCurrentTemp queryParams) {
+        miniFactory(queryParams);
         float temperature=js.get("main.temp");
         return CentiToFaren.conversion(temperature);
     }

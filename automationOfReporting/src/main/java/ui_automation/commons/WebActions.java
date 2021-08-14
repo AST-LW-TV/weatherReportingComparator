@@ -1,4 +1,4 @@
-package comparator_logic.actions;
+package ui_automation.commons;
 
 import org.openqa.selenium.WebDriver;
 import ui_automation.pages.AccuWeatherHomePage;
@@ -16,6 +16,7 @@ public class WebActions {
     private String temperature;
     private String airQuality;
     private String windSpeed;
+    List<Object> informationList=new ArrayList<>();
 
     public WebActions(WebDriver driver){
         this.driver=driver;
@@ -49,17 +50,26 @@ public class WebActions {
         convertSentenceToInt();
     }
 
-    // gives the current temperature - at index 0...
-    public List<Object> returnInfo(String place,int count){
-        List<Object> informationList=new ArrayList<>();
-        if(count<=1)
-            navigateToResultsPage(place);
-        else // here use the search component present in result page
-            stayOnSamePage(place);
+    private void miniFactory(){
         performingFactoryMethods();
         informationList.add(temperature);
         informationList.add(airQuality);
         informationList.add(windSpeed);
+    }
+
+    // gives the current temperature - at index 0...
+    public List<Object> returnInfo(String place,int count){
+        if(count<=1)
+            navigateToResultsPage(place);
+        else // here use the search component present in result page
+            stayOnSamePage(place);
+        miniFactory();
+        return informationList;
+    }
+
+    public List<Object> returnInfo(String place){
+        navigateToResultsPage(place);
+        miniFactory();
         return informationList;
     }
 
