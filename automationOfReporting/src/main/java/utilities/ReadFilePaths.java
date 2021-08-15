@@ -44,10 +44,7 @@ public class ReadFilePaths {
         MAP.put("queryParam1", QP1);
         MAP.put("stagingKeys", KY);
         MAP.put("commonFile", CF);
-<<<<<<< HEAD
-=======
         MAP.put("screenshotPath",SH);
->>>>>>> screenshotsFunctionality
     }
 
     public static String getFilePath(String nameOfTheFile) {

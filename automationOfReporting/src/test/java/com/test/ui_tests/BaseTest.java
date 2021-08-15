@@ -1,6 +1,7 @@
 package com.test.ui_tests;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import utilities.ReadPropertyFiles;
 import utilities.browserSetup.BrowserFactory;
@@ -10,9 +11,10 @@ public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
-    public void setUp() {
+    public void setUp(ITestContext context) {
         driver = BrowserFactory.getDriver();
         driver.get(ReadPropertyFiles.getValue("urlProperties", "url"));
+        context.setAttribute("WebDriverInstance",driver);
     }
 
     @AfterMethod(alwaysRun = true)

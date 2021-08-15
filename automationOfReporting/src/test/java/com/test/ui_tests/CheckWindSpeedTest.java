@@ -1,11 +1,14 @@
 package com.test.ui_tests;
 
+import org.testng.annotations.Listeners;
 import ui_automation.commons.WebActions;
 import org.json.simple.JSONArray;
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilities.jsonParserFunctions.JsonBlobType2;
+
+@Listeners(common.Listeners.class)
 
 public class CheckWindSpeedTest extends BaseTest {
 
