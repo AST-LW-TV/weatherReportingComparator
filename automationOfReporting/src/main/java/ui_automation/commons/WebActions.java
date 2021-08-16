@@ -17,6 +17,7 @@ public class WebActions {
     private String airQuality;
     private String windSpeed;
     List<Object> informationList = new ArrayList<>();
+    private boolean flag = false;
 
     public WebActions(WebDriver driver) {
         this.driver = driver;
@@ -43,19 +44,23 @@ public class WebActions {
         resultPage.getSearchComponent().selectPlaceInResultPlace(place);
     }
 
-    private void performingFactoryMethods() {
+    private void performingFactoryMethods(boolean flag) {
         temperature = resultPage.getInformationModule().getCurrentTemperature();
-        airQuality = resultPage.getInformationModule().getAirQuality();
-        windSpeed = resultPage.getInformationModule().getWindSpeed();
         convertTemperatureToInt();
-        convertSentenceToInt();
+        if (!flag) {
+            airQuality = resultPage.getInformationModule().getAirQuality();
+            windSpeed = resultPage.getInformationModule().getWindSpeed();
+            convertSentenceToInt();
+        }
     }
 
-    private void miniFactory() {
-        performingFactoryMethods();
-        informationList.add(temperature);
-        informationList.add(airQuality);
-        informationList.add(windSpeed);
+    private void miniFactory(boolean flag) {
+        performingFactoryMethods(flag);
+        if (!flag) {
+            informationList.add(temperature);
+            informationList.add(airQuality);
+            informationList.add(windSpeed);
+        }
     }
 
     // gives the current temperature - at index 0...
@@ -64,13 +69,14 @@ public class WebActions {
             navigateToResultsPage(place);
         else // here use the search component present in result page
             stayOnSamePage(place);
-        miniFactory();
+        miniFactory(flag);
         return informationList;
     }
 
-    public List<Object> returnInfo(String place) {
+    public String returnInfo(String place) {
+        flag = true;
         navigateToResultsPage(place);
-        miniFactory();
-        return informationList;
+        miniFactory(flag);
+        return temperature;
     }
 }

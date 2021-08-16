@@ -12,7 +12,7 @@ public class ComparatorLogicTest extends BaseTest{
     private int temperatureFromAPI;
 
     private int getTemperatureFromUI(String place){
-        return Integer.parseInt((String)actions.returnInfo(place).get(0));
+        return Integer.parseInt(actions.returnInfo(place));
     }
 
     private int getTemperatureFromAPI(String place,String key){
