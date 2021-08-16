@@ -15,6 +15,7 @@ public class Listeners implements ITestListener {
     private void miniFactory(String status) {
         ITestContext context = getResult.getTestContext();
         driver = (WebDriver) context.getAttribute("WebDriverInstance");
+        Screenshots.saveScreenShotsForAllureReports(driver);
         Screenshots.TakeScreenShot(status, driver, getResult.getName());
     }
 

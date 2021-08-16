@@ -1,5 +1,6 @@
 package utilities;
 
+import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -15,10 +16,15 @@ public class Screenshots {
                 ? ReadFilePaths.getFilePath("success") : ReadFilePaths.getFilePath("failure");
         try {
             File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenShotFile, new File(filePath + fileName + ".png"));
+            FileUtils.copyFile(screenShotFile, new File(filePath + fileName + " - "+GiveDateOfCreation.get() + ".png"));
         } catch (IOException e) {
             System.out.println("Screenshot error...");
             System.exit(-1);
         }
+    }
+
+    @Attachment
+    public static byte[] saveScreenShotsForAllureReports(WebDriver driver){
+        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 }
