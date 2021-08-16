@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="REGRESSION TESTS - UI">
+
     <test name="Regression Testing for UI">
         <groups>
             <run>
@@ -13,5 +14,6 @@
             <class name="com.test.ui_tests.IsPolicyBlockDisplayedTest"/>
         </classes>
     </test>
+
 </suite>
 

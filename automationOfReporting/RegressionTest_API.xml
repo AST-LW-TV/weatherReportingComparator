@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="REGRESSION TESTS - API">
+
     <test name="Regression Testing for API">
         <groups>
             <run>
@@ -12,5 +13,6 @@
             <class name="com.test.service_layer_tests.ValidatingWindSpeedTest"/>
         </classes>
     </test>
+
 </suite>
 

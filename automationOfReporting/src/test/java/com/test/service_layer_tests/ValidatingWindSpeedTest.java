@@ -1,5 +1,8 @@
 package com.test.service_layer_tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -22,6 +25,8 @@ public class ValidatingWindSpeedTest {
     }
 
     @Test(dataProvider = "getData", groups = {"api_regression_tests"})
+    @Description("This test checks the speed of the wind from API call")
+    @Severity(SeverityLevel.NORMAL)
     public void checkingWindSpeed(String place, String key) {
         setQueryParams = new SetQueryParamsForCurrentTemp.QueryParamBuilder()
                 .q(place)

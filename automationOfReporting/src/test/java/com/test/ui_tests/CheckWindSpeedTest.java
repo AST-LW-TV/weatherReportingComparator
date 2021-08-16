@@ -1,5 +1,8 @@
 package com.test.ui_tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Listeners;
 import ui_automation.commons.WebActions;
 import org.json.simple.JSONArray;
@@ -18,6 +21,8 @@ public class CheckWindSpeedTest extends BaseTest {
 
     @Test(dataProvider = "getData")
     // independent test to show the error handling, that is element keeps on changing position
+    @Description("This test validates the wind speed in UI HTML page")
+    @Severity(SeverityLevel.NORMAL)
     public void windSpeedValidation(String place) {
         int size = place.length() - (place.length() - 3);
         place = place.substring(0, size);
