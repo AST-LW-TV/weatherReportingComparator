@@ -1,6 +1,5 @@
 package utilities.jsonParserFunctions;
 
-
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import utilities.ReadFilePaths;
@@ -14,7 +13,7 @@ public abstract class JsonParser {
     protected FileReader file;
     protected Object jsonStructure;
 
-    public abstract Object jsonParserBlobType();
+    public abstract Object jsonParserBlobType(String keyValue);
 
     public JsonParser(String nameOfTheFile) {
         jsonParser = new JSONParser();

@@ -16,7 +16,7 @@ public class JsonBlobType3 extends JsonParser {
     }
 
     @Override
-    public Object jsonParserBlobType() {
+    public Object jsonParserBlobType(String keyValue) {
         JSONObject jsonObject = (JSONObject) jsonStructure;
         return jsonObject;
     }

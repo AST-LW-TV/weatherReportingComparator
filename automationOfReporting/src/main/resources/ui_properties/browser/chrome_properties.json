@@ -1,0 +1,6 @@
+{
+  "properties": [
+    "--head",
+    "disable-notifications"
+  ]
+}
