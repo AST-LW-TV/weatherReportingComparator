@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="TEMPERATURE COMPARATOR TEST">
+<suite name="COMPARATOR TESTS">
 
     <test name="Logic Test">
         <classes>
-            <class name="com.test.logic_tests.ComparatorLogicTest"></class>
+            <class name="com.test.logic_tests.TemperatureComparatorLogicTest"></class>
+            <class name="com.test.logic_tests.WindSpeedComparatorLogicTest"></class>
         </classes>
     </test>
 
