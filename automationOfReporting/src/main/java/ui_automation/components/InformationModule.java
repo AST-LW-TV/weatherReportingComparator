@@ -1,5 +1,6 @@
 package ui_automation.components;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,10 @@ public class InformationModule extends AbstractComponent {
     private List<String> info;
     private String airQuality;
     private String windSpeed;
+
+    // for safari browser
+    By temperatureLocator = By.cssSelector(".cur-con-weather-card__body .temp");
+    By infoAboutWeatherLocator = By.cssSelector(".cur-con-weather-card__panel.details-container>div>span[class='value']");
 
     @FindBy(css = ".cur-con-weather-card__body .temp")
     WebElement temperature;
@@ -36,6 +41,7 @@ public class InformationModule extends AbstractComponent {
     // if WebElement size - 3 [AirQuality, Wind, Wind Gusts]
     // choosing the info dynamically
     public void getInfo() {
+        ExplicitDriverWaits.waitForElementVisibility(driver, infoAboutWeatherLocator);
         info = new ArrayList<>();
         if (infoAboutWeather.size() == 4)
             helper(1);
@@ -49,6 +55,7 @@ public class InformationModule extends AbstractComponent {
      * @return temperature - String format
      */
     public String getCurrentTemperature() {
+        ExplicitDriverWaits.waitForElementVisibility(driver, temperatureLocator); // for safari browser
         ExplicitDriverWaits.visibility(driver, temperature);
         return temperature
                 .getText()
