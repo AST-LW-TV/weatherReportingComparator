@@ -90,9 +90,12 @@
 
 ### Patterns Used in Application
 
-- Single Responsibility Principle - All the components implemented, follow this principle
+- Single Responsibility Principle - All the [components](https://github.com/AST-LW-TV/weatherReportingComparator/tree/main/automationOfReporting/src/main/java/ui_automation/components) implemented, follow this principle
 - Factory Pattern - [BrowserFactory Class](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/utilities/browserSetup/BrowserFactory.java) implements this pattern
 - Builder Pattern - [SetQueryParamsForCurrentTemp Class](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/service_layer_automation/data_driving_classes/SetQueryParamsForCurrentTemp.java) uses Builder principle
+- Page Object Model 
+  - [AccuWeatherHomePage](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/ui_automation/pages/AccuWeatherHomePage.java)
+  - [AccuWeatherResultsPage](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/ui_automation/pages/AccuWeatherResultsPage.java)
 
 ### Features
 
@@ -102,7 +105,7 @@
     - using Allure support - are shown when Allure serves "allure-results"
 - [Video Recording](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/utilities/VideoRecorder.java)
     - stored at [test_videos](https://github.com/AST-LW-TV/weatherReportingComparator/tree/main/automationOfReporting/src/test/resources/test_videos)
-- Supports three browsers **Chrome**, **Firefox**, **Safari**  
+- Supports three browsers **Chrome**, **Firefox**, **Safari**
 
 ### Tests
 
