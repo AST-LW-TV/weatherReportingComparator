@@ -30,7 +30,8 @@ public class WebActions {
         temperature = temperature.substring(0, size - (size - 2));
     }
 
-    private void convertSentenceToInt() {
+    // SW 22 Km/hr -> ["SW", "22", "Km/hr"]
+    private void convertSentence() {
         String[] array = windSpeed.split(" ");
         windSpeed = array[1];
     }
@@ -47,11 +48,11 @@ public class WebActions {
     private void performingFactoryMethods(boolean flag) {
         resultPage.getInformationModule().getInfo();
         temperature = resultPage.getInformationModule().getCurrentTemperature();
+        windSpeed = resultPage.getInformationModule().getWindSpeed();
         convertTemperatureToInt();
+        convertSentence();
         if (!flag) {
             airQuality = resultPage.getInformationModule().getAirQuality();
-            windSpeed = resultPage.getInformationModule().getWindSpeed();
-            convertSentenceToInt();
         }
     }
 
@@ -76,10 +77,13 @@ public class WebActions {
     }
 
     // used to get only temperature from the UI
-    public String returnInfo(String place) {
+    public List<String> returnInfo(String place) {
+        List<String> temperatureAndPressure = new ArrayList<>();
         flag = true;
         navigateToResultsPage(place);
         miniFactory(flag);
-        return temperature;
+        temperatureAndPressure.add(temperature);
+        temperatureAndPressure.add(windSpeed);
+        return temperatureAndPressure;
     }
 }

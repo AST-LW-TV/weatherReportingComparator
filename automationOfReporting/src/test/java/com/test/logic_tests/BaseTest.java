@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import service_layer_automation.data_driving_classes.SetQueryParamsForCurrentTemp;
 import service_layer_automation.get_requests.GetCurrentWeather;
 import ui_automation.commons.WebActions;
 import utilities.ReadPropertyFiles;
+import utilities.VideoRecorder;
 import utilities.browserSetup.BrowserFactory;
 
 @Listeners(common.Listeners.class)
@@ -20,18 +22,37 @@ public abstract class BaseTest {
     protected SetQueryParamsForCurrentTemp setQueryParams;
     protected GetCurrentWeather getCurrentWeather;
 
+    protected void miniFactory(String place, String key) {
+        setQueryParams = new SetQueryParamsForCurrentTemp.QueryParamBuilder()
+                .q(place)
+                .appid(key)
+                .build();
+    }
+
     @BeforeTest(alwaysRun = true)
     public void setUp(ITestContext context) {
+//        VideoRecorder.startRecording();
         driver = BrowserFactory.getDriver();
         driver.get(ReadPropertyFiles.getValue("urlProperties", "url"));
-        context.setAttribute("WebDriverInstance",driver);
+        context.setAttribute("WebDriverInstance", driver);
         actions = new WebActions(driver);
 
         getCurrentWeather = new GetCurrentWeather();
     }
 
+    @DataProvider
+    public Object[][] getData() {
+        int variance = 3;
+        String key = ReadPropertyFiles.getValue("stagingKeys", "apiKey");
+        String place = ReadPropertyFiles.getValue("commonFile", "place");
+        return new Object[][]{
+                {place, key, variance}
+        };
+    }
+
     @AfterTest(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+//        VideoRecorder.stopRecording();
     }
 }

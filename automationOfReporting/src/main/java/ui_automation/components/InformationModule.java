@@ -30,7 +30,7 @@ public class InformationModule extends AbstractComponent {
     }
 
     public void getInfo() {
-        infoAboutWeather = new ArrayList<>();
+        info = new ArrayList<>();
         if (infoAboutWeather.size() == 4)
             helper(1);
         else
@@ -41,7 +41,7 @@ public class InformationModule extends AbstractComponent {
         ExplicitDriverWaits.visibility(driver, temperature);
         return temperature
                 .getText()
-                .trim(); // index 0 has current temperature
+                .trim();
     }
 
     public String getAirQuality() {
