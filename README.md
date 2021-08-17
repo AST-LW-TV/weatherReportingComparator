@@ -149,7 +149,7 @@ mvn clean compile -P ui_testing test
     - [Host Domain](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/resources/service_layer_properties/hostDomain.properties) + [Resources Domain](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/resources/service_layer_properties/resourcesDomain.properties) = URI
     
       Host Domain | Resource Domain
-          ----------- | ----------------
+      ----------- | ----------------
       https://www.abc.com/ | /hello-world/index.html
 
     - [keys](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/test/resources/service_layer_test_properties/keys/stagingKeys.properties) for different environments
