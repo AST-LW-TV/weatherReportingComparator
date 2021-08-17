@@ -1,6 +1,6 @@
 package utilities.jsonParserFunctions;
 
-import org.json.simple.JSONObject;
+//JSON Blob format -
 
 /*
         {
@@ -8,6 +8,8 @@ import org.json.simple.JSONObject;
             key1:value1
         }
  */
+
+import org.json.simple.JSONObject;
 
 public class JsonBlobType3 extends JsonParser {
 

@@ -1,6 +1,6 @@
 package utilities.jsonParserFunctions;
 
-// JSON Blob is given below and is specific to app...
+// JSON Blob is given below and is specific to app -
 /*
     {
       "places":[
@@ -19,9 +19,9 @@ public class JsonBlobType1 extends JsonParser {
     }
 
     @Override
-    public Object jsonParserBlobType() {
+    public Object jsonParserBlobType(String keyValue) {
         JSONObject jsonObject = (JSONObject) jsonStructure;
-        JSONArray jsonArray = (JSONArray) jsonObject.get("places");
+        JSONArray jsonArray = (JSONArray) jsonObject.get(keyValue);
         return jsonArray;
     }
 }

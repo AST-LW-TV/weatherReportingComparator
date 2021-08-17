@@ -2,10 +2,7 @@ package com.test.logic_tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import service_layer_automation.data_driving_classes.SetQueryParamsForCurrentTemp;
 import service_layer_automation.get_requests.GetCurrentWeather;
 import ui_automation.commons.WebActions;
@@ -29,9 +26,9 @@ public abstract class BaseTest {
                 .build();
     }
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp(ITestContext context) {
-//        VideoRecorder.startRecording();
+        VideoRecorder.startRecording();
         driver = BrowserFactory.getDriver();
         driver.get(ReadPropertyFiles.getValue("urlProperties", "url"));
         context.setAttribute("WebDriverInstance", driver);
@@ -50,9 +47,9 @@ public abstract class BaseTest {
         };
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
-//        VideoRecorder.stopRecording();
+        VideoRecorder.stopRecording();
     }
 }

@@ -1,5 +1,9 @@
 package service_layer_automation.data_driving_classes;
 
+/*
+    Builder Pattern to set the Query Parameters in API Get call
+ */
+
 public class SetQueryParamsForCurrentTemp {
 
     private final String q;

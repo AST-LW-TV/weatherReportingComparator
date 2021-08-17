@@ -13,6 +13,7 @@ public class GetCurrentWeather {
     private String response;
     private JsonPath js;
 
+    // helper method for getting the response from GET call
     private void miniFactory(SetQueryParamsForCurrentTemp queryParams) {
         RestAssured.baseURI = ReadPropertyFiles.getValue("hostPath", "openWeatherAppDomain");
         response = given()
@@ -23,12 +24,14 @@ public class GetCurrentWeather {
         js = new JsonPath(response);
     }
 
+    // returns the current wind speed from informational module
     public float currentWindSpeed(SetQueryParamsForCurrentTemp queryParams) {
         miniFactory(queryParams);
         float windSpeed = js.get("wind.speed");
         return windSpeed;
     }
 
+    // returns the current temperature from informational module
     public int currentTemperature(SetQueryParamsForCurrentTemp queryParams) {
         miniFactory(queryParams);
         float temperature = js.get("main.temp");

@@ -31,7 +31,8 @@ public class SearchBarSuggestionsTest extends BaseTest {
     @DataProvider
     public Object[][] getData() {
         js = new JsonBlobType1("places");
-        JSONArray array = (JSONArray) js.jsonParserBlobType();
+        JSONArray array = (JSONArray) js.jsonParserBlobType("places");
+
         int totalPlaces = array.size();
         Object[][] data = new Object[totalPlaces][1]; // 1D object
         for (int i = 0; i < totalPlaces; i++)

@@ -4,25 +4,19 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import service_layer_automation.data_driving_classes.SetQueryParamsForCurrentTemp;
-import utilities.ReadPropertyFiles;
 
-public class ComparatorLogicTest extends BaseTest {
+public class TemperatureComparatorLogicTest extends BaseTest {
 
     private int temperatureFromUI;
     private int temperatureFromAPI;
 
     private int getTemperatureFromUI(String place) {
-        return Integer.parseInt(actions.returnInfo(place));
+        return Integer.parseInt(actions.returnInfo(place).get(0));
     }
 
     private int getTemperatureFromAPI(String place, String key) {
-        setQueryParams = new SetQueryParamsForCurrentTemp.QueryParamBuilder()
-                .q(place)
-                .appid(key)
-                .build();
+        miniFactory(place, key);
         return getCurrentWeather.currentTemperature(setQueryParams);
     }
 
@@ -33,15 +27,5 @@ public class ComparatorLogicTest extends BaseTest {
         temperatureFromUI = getTemperatureFromUI(place);
         temperatureFromAPI = getTemperatureFromAPI(place, key);
         Assert.assertTrue(Math.abs(temperatureFromAPI - temperatureFromUI) <= variance);
-    }
-
-    @DataProvider
-    public Object[][] getData() {
-        int variance = 3;
-        String key = ReadPropertyFiles.getValue("stagingKeys", "apiKey");
-        String place = ReadPropertyFiles.getValue("commonFile", "place");
-        return new Object[][]{
-                {place, key, variance}
-        };
     }
 }

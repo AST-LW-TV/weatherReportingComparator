@@ -30,6 +30,4 @@ public class WindSpeedComparatorLogicTest extends BaseTest {
         windSpeedFromAPI = getWindSpeedFromAPI(place, key);
         Assert.assertTrue(Math.abs(windSpeedFromUI - windSpeedFromAPI) <= variance);
     }
-
-
 }

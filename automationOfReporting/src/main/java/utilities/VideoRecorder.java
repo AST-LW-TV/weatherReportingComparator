@@ -37,24 +37,26 @@ public class VideoRecorder {
     public static void startRecording() {
         try {
             file = new File(ReadFilePaths.getFilePath("testVideosPath"));
-            screenRecorder = new ScreenRecorder(graphicsConfiguration, captureSize,
-                    new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI),
-                    new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,
+            screenRecorder = new ScreenRecorder(graphicsConfiguration,   // initial configuration of the system diaplay
+                    captureSize,  // size of the screen to be recorded
+                    new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI), // file format
+                    new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE, // mouse format
                             CompressorNameKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE, DepthKey, 24, FrameRateKey,
                             Rational.valueOf(15), QualityKey, 1.0f, KeyFrameIntervalKey, 15 * 60),
-                    new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, "black", FrameRateKey, Rational.valueOf(30)),
-                    null, file);
+                    new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, "black", FrameRateKey, Rational.valueOf(30)), // screen format
+                    null, // audio format
+                    file); // file path to store the recorded video
             screenRecorder.start();
         } catch (IOException e) {
-            e.printStackTrace(); // visit later for exceptions
+            e.printStackTrace();
         } catch (AWTException e) {
-            e.printStackTrace(); // visit later for exceptions
+            e.printStackTrace();
         }
     }
 
     public static void stopRecording() {
         try {
-            screenRecorder.stop();
+            screenRecorder.stop(); // stop recording
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -20,7 +20,6 @@ public class CheckWindSpeedTest extends BaseTest {
     private int count = 0;
 
     @Test(dataProvider = "getData")
-    // independent test to show the error handling, that is element keeps on changing position
     @Description("This test validates the wind speed in UI HTML page")
     @Severity(SeverityLevel.NORMAL)
     public void windSpeedValidation(String place) {
@@ -36,7 +35,7 @@ public class CheckWindSpeedTest extends BaseTest {
     @DataProvider
     public Object[][] getData() {
         js = new JsonBlobType2("placesInMain");
-        JSONArray array = (JSONArray) js.jsonParserBlobType();
+        JSONArray array = (JSONArray) js.jsonParserBlobType("");
         int totalPlaces = array.size();
         Object[][] data = new Object[totalPlaces][1];
         for (int i = 0; i < totalPlaces; i++)

@@ -7,9 +7,9 @@ import java.util.function.Supplier;
 public class ReadFilePaths {
 
     // file path constants used in main (UI automation)
-    private static final Supplier<String> CP = () -> "./src/main/resources/ui_properties/browser/chrome.properties";
-    private static final Supplier<String> FP = () -> "./src/main/resources/ui_properties/browser/firefox.properties";
-    private static final Supplier<String> BP = () -> "./src/main/resources/ui_properties/browser/common/browserProperties.properties";
+    private static final Supplier<String> CP = () -> "./src/main/resources/ui_properties/browser/chrome_properties.json";
+    private static final Supplier<String> FP = () -> "./src/main/resources/ui_properties/browser/firefox_properties.json";
+    private static final Supplier<String> BP = () -> "./target/classes/ui_properties/browser/common/browserProperties.properties";
 
     // file path constants used main (Service layer in automation)
     private static final Supplier<String> HD = () -> "./src/main/resources/service_layer_properties/hostDomain.properties";
@@ -26,8 +26,12 @@ public class ReadFilePaths {
     private static final Supplier<String> QP1 = () -> "./src/test/resources/service_layer_test_properties/weatherQueryParams1.json";
     private static final Supplier<String> CF = () -> "src/test/resources/logic_properties/commonFileForLogic.properties";
 
-    // file path constant for screenshots
-    private static final Supplier<String> SH = () -> "src/test/resources/screenshots";
+    // file path constants for screenshots
+    private static final Supplier<String> SHS = () -> "./src/test/resources/screenshots/success_tests/";
+    private static final Supplier<String> SHF = () -> "./src/test/resources/screenshots/failed_tests/";
+
+    // file path constants for test_videos
+    private static final Supplier<String> TV = () -> "./src/test/resources/test_videos/";
 
     private static final Map<String, Supplier<String>> MAP = new HashMap<>();
 
@@ -44,7 +48,9 @@ public class ReadFilePaths {
         MAP.put("queryParam1", QP1);
         MAP.put("stagingKeys", KY);
         MAP.put("commonFile", CF);
-        MAP.put("screenshotPath",SH);
+        MAP.put("success", SHS);
+        MAP.put("failure", SHF);
+        MAP.put("testVideosPath", TV);
     }
 
     public static String getFilePath(String nameOfTheFile) {

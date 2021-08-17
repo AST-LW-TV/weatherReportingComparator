@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import ui_automation.components.PolicyAcceptanceComponent;
 import ui_automation.components.SearchComponent;
 
+// Home page
+// has two components integrated - policy block component and search component
+
 public class AccuWeatherHomePage {
 
     private WebDriver driver;

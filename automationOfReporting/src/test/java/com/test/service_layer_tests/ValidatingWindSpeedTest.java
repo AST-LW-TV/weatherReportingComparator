@@ -39,7 +39,7 @@ public class ValidatingWindSpeedTest {
     public Object[][] getData() {
         String key = ReadPropertyFiles.getValue("stagingKeys", "apiKey");
         js = new JsonBlobType3("queryParam1");
-        JSONObject object = (JSONObject) js.jsonParserBlobType();
+        JSONObject object = (JSONObject) js.jsonParserBlobType("");
         return new Object[][]{
                 {object.get("q"), key}
         };

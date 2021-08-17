@@ -7,6 +7,10 @@ import ui_automation.pages.AccuWeatherResultsPage;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    WebActions class is responsible for getting the required details from UI
+ */
+
 public class WebActions {
 
     private WebDriver driver;
@@ -25,6 +29,7 @@ public class WebActions {
         resultPage = new AccuWeatherResultsPage(driver);
     }
 
+    // 24C -> 24
     private void convertTemperatureToInt() {
         int size = temperature.length();
         temperature = temperature.substring(0, size - (size - 2));
@@ -36,15 +41,18 @@ public class WebActions {
         windSpeed = array[1];
     }
 
+    // navigating from home page to results page
     private void navigateToResultsPage(String place) {
         homePage.getPolicyComponent().clickOnPolicy();
         homePage.getSearchComponent().selectFirstOptionFromDropDown(place);
     }
 
+    // searching the place using the input field present in the result page
     private void stayOnSamePage(String place) {
         resultPage.getSearchComponent().selectPlaceInResultPlace(place);
     }
 
+    // helper method performing combination of operations
     private void performingFactoryMethods(boolean flag) {
         resultPage.getInformationModule().getInfo();
         temperature = resultPage.getInformationModule().getCurrentTemperature();
@@ -56,6 +64,7 @@ public class WebActions {
         }
     }
 
+    // helper method to eliminate the duplicate code
     private void miniFactory(boolean flag) {
         performingFactoryMethods(flag);
         if (!flag) {
@@ -65,18 +74,20 @@ public class WebActions {
         }
     }
 
-    // gives the current temperature - at index 0...
+    // Polymorphism concept -
+
     // used to test the input field in the result page
     public List<Object> returnInfo(String place, int count) {
         if (count <= 1)
             navigateToResultsPage(place);
-        else // here use the search component present in result page
+        else
+            // here using the search component present in result page
             stayOnSamePage(place);
         miniFactory(flag);
         return informationList;
     }
 
-    // used to get only temperature from the UI
+    // used to get temperature and pressure from the UI
     public List<String> returnInfo(String place) {
         List<String> temperatureAndPressure = new ArrayList<>();
         flag = true;

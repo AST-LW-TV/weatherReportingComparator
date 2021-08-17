@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import ui_automation.components.InformationModule;
 import ui_automation.components.SearchComponent;
 
+// Results page
+// has two components integrated - search and information module component
+
 public class AccuWeatherResultsPage {
 
     private WebDriver driver;

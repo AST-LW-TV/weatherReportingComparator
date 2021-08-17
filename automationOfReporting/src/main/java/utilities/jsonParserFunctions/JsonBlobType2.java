@@ -1,12 +1,14 @@
 package utilities.jsonParserFunctions;
 
-import org.json.simple.JSONArray;
+//JSON Blob format -
 
 /*
        [
             value1, value2, value3 ...
        ]
  */
+
+import org.json.simple.JSONArray;
 
 public class JsonBlobType2 extends JsonParser {
 

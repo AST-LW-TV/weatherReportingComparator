@@ -5,6 +5,10 @@ import utilities.ReadPropertyFiles;
 import utilities.browserSetup.browsers.ChromeBrowser;
 import utilities.browserSetup.browsers.FirefoxBrowser;
 
+/*
+    Factory Pattern
+ */
+
 public class BrowserFactory {
 
     private static String browserName;
