@@ -147,7 +147,7 @@ mvn clean compile -P ui_testing test
 - for service layer ( API )
 
     - [Host Domain](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/resources/service_layer_properties/hostDomain.properties) + [Resources Domain](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/resources/service_layer_properties/resourcesDomain.properties) = URI
-
+    
       Host Domain | Resource Domain
           ----------- | ----------------
       https://www.abc.com/ | /hello-world/index.html
