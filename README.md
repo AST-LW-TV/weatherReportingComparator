@@ -167,6 +167,9 @@ mvn clean compile -P ui_testing test
 allure serve allure-results
 ```
 
+![](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/test/resources/screenshots/Allure_Sample.png)
+
+
 ### Supports
 
 - Default is **Chrome**
