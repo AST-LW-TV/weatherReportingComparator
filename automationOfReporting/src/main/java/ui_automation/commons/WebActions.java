@@ -45,6 +45,7 @@ public class WebActions {
     }
 
     private void performingFactoryMethods(boolean flag) {
+        resultPage.getInformationModule().getInfo();
         temperature = resultPage.getInformationModule().getCurrentTemperature();
         convertTemperatureToInt();
         if (!flag) {
@@ -64,6 +65,7 @@ public class WebActions {
     }
 
     // gives the current temperature - at index 0...
+    // used to test the input field in the result page
     public List<Object> returnInfo(String place, int count) {
         if (count <= 1)
             navigateToResultsPage(place);
@@ -73,6 +75,7 @@ public class WebActions {
         return informationList;
     }
 
+    // used to get only temperature from the UI
     public String returnInfo(String place) {
         flag = true;
         navigateToResultsPage(place);
