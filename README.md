@@ -29,6 +29,7 @@
                             +-- browsers
                                 +-- ChromeBrowser.java
                                 +-- FirefoxBrowser.java
+                                +-- SafariBrowser.java
                             +-- BrowserConfiguration.java
                             +-- BrowserFactory.java
                         +-- jsonParserFunctions
@@ -101,6 +102,7 @@
     - using Allure support - are shown when Allure serves "allure-results"
 - [Video Recording](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/utilities/VideoRecorder.java)
     - stored at [test_videos](https://github.com/AST-LW-TV/weatherReportingComparator/tree/main/automationOfReporting/src/test/resources/test_videos)
+- Supports three browsers **Chrome**, **Firefox**, **Safari**  
 
 ### Tests
 
@@ -134,7 +136,7 @@ maven command for executing tests
 mvn clean compile -P ui_testing test
 ```
 
-### Data Driven from JSON and properties file
+### Data Driven from JSON and Properties file
 
 - for UI
     - [URL Data](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/test/resources/ui_test_properties/urlProperties.properties)
@@ -183,4 +185,8 @@ allure serve allure-results
   ```
   mvn clean compile -P firefox_execution test
   ```
-  
+
+- [Safari Browser](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/main/java/utilities/browserSetup/browsers/SafariBrowser.java)
+  ```
+  mvn clean compile -P safari_execution test
+  ```
