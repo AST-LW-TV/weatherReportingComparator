@@ -152,7 +152,7 @@ mvn clean compile -P ui_testing test
     
       Host Domain | Resource Domain
       ----------- | ----------------
-      https://www.abc.com/ | /hello-world/index.html
+      https://www.sampleWebsite.com/ | /hello-world/index.html
 
     - [keys](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/test/resources/service_layer_test_properties/keys/stagingKeys.properties) for different environments
     - Data for [Query Paramters](https://github.com/AST-LW-TV/weatherReportingComparator/blob/main/automationOfReporting/src/test/resources/service_layer_test_properties/weatherQueryParams1.json) which are used in *GET* request
